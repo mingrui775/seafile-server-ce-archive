@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -u
 
-# 目标目录(src/ 已存在则跳过创建)
-SRC_DIR="${SRC_DIR:-./src}"
-mkdir -p "$SRC_DIR"
-cd "$SRC_DIR"
+# # 目标目录(src/ 已存在则跳过创建)
+# SRC_DIR="${SRC_DIR:-./src}"
+# mkdir -p "$SRC_DIR"
+# cd "$SRC_DIR"
 
 # ===== 配置区:目录名 → "URL|额外参数" =====
 # tag 值按 seafile-build.sh 头部 *_tag= 的定义照抄,别拍脑袋猜

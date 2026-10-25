@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -u
 
-# 目标目录(src/ 已存在则跳过创建)
-SRC_DIR="${SRC_DIR:-./src}"
-mkdir -p "$SRC_DIR"
-cd "$SRC_DIR"
+# # 目标目录(src/ 已存在则跳过创建)
+# SRC_DIR="${SRC_DIR:-./src}"
+# mkdir -p "$SRC_DIR"
+# cd "$SRC_DIR"
 
 # ===== 配置区:目录名 → "URL|额外参数" =====
 # tag 值按 seafile-build.sh 头部 *_tag= 的定义照抄,别拍脑袋猜
@@ -26,7 +26,7 @@ for dir in "${!REPOS[@]}"; do
   url="${REPOS[$dir]%%|*}"
   args="${REPOS[$dir]#*|}"
   url="${GH_PROXY}${base_url}"
-  
+
   # 判断:目录存在 且 里面有 .git 才算"已 clone"
   # 只判 -d 会被网络中断留下的空目录骗过,补上 .git 检查更稳
   if [[ -d "$dir" && -d "$dir/.git" ]]; then
