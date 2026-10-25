@@ -9,6 +9,9 @@ cd "$SRC_DIR"
 # ===== 配置区:目录名 → "URL|额外参数" =====
 # tag 值按 seafile-build.sh 头部 *_tag= 的定义照抄,别拍脑袋猜
 # 浅克隆用 --depth=N --branch <tag>;不限深度的就留空参数
+
+GH_PROXY="https://gh-proxy.com/"    # 关闭代理就设为空
+
 declare -A REPOS=(
   [libevhtp]="https://github.com/haiwen/libevhtp.git|--branch 1.1.6 --depth=1"
   [libsearpc]="https://github.com/haiwen/libsearpc.git|--branch v3.3-latest --depth=1"
@@ -22,7 +25,8 @@ declare -A REPOS=(
 for dir in "${!REPOS[@]}"; do
   url="${REPOS[$dir]%%|*}"
   args="${REPOS[$dir]#*|}"
-
+  url="${GH_PROXY}${base_url}"
+  
   # 判断:目录存在 且 里面有 .git 才算"已 clone"
   # 只判 -d 会被网络中断留下的空目录骗过,补上 .git 检查更稳
   if [[ -d "$dir" && -d "$dir/.git" ]]; then

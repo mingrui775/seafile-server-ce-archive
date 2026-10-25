@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
 # ===== 配置区 =====
-$Mirror = 'https://github.com'    # 直连 GitHub 时改成 ''
+$Mirror = 'https://gh-proxy.com/https://github.com'    # 直连 GitHub 时改成 ''
 
 # [ordered] 保证按声明顺序执行,普通 @{...} 的键序是乱的
 $Repos = [ordered]@{
