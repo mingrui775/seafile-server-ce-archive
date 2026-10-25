@@ -4,7 +4,7 @@
 
 ## 前言
 
-> 实际上本项目的核心目标是将seahub(Django)项目剥离，并解决seafile官方对docker-ubuntu基础镜像依赖，而导致各组件占用储存大于1Gib
+> 实际上本项目的核心目标是将 **seahub(Django)** 项目剥离，并解决**seafile**官方对**docker-ubuntu**基础镜像依赖，而导致各组件占用储存大于1Gib
 
 ## 📖 简介
 
