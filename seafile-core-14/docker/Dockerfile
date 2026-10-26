@@ -3,7 +3,7 @@ ARG server_version=
 ENV SEAFILE_SERVER=seafile-server SEAFILE_VERSION=$server_version
 
 # https://github.com/phusion/baseimage-docker
-COPY base_scripts /bd_build
+COPY docker/base_scripts /bd_build
 RUN /bd_build/prepare.sh && \
     /bd_build/system_services.sh && \
     /bd_build/utilities.sh && \
@@ -46,8 +46,8 @@ RUN pip3 install --no-cache-dir --timeout=3600 --ignore-installed \
     pillow==12.2.* pillow-heif==1.2.* cairosvg==2.9.*
 
 # Scripts
-COPY scripts_14.0 /scripts
-COPY services /services
+COPY docker/scripts_14.0 /scripts
+COPY docker/services /services
 
 RUN mkdir -p /etc/ldap/ && echo "TLS_REQCERT     allow" >> /etc/ldap/ldap.conf && \
     echo "TLS_CACERT     /etc/ssl/certs/ca-certificates.crt" >> /etc/ldap/ldap.conf && \
